@@ -1,0 +1,13 @@
+page-explore-music {
+
+    #archiveButton {
+        background-color: color( $colors, archive );
+        color: white;
+    }
+    
+    #spotButton {
+        background-color: color( $colors, spotify );
+        color: white;
+    }
+
+}
