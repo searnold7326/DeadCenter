@@ -34,6 +34,26 @@ export class SongsListPage {
     {
       name: "Me and My Uncle",
       file: "../../assets/media/DavesPicks25/5_Me and My Uncle.wav"
+    },
+    {
+      name: "New Minglewood Blues",
+      file: "../../assets/media/DavesPicks25/7_New Minglewood Blues.wav"
+    },
+    {
+      name: "Dupree's Diamond Blues",
+      file: "../../assets/media/DavesPicks25/8_Dupree's Diamond Blues.wav"
+    },
+    {
+      name: "Passenger",
+      file: "../../assets/media/DavesPicks25/9_Passenger.wav"
+    },
+    {
+      name: "Dire Wolf",
+      file: "../../assets/media/DavesPicks25/10_Dire Wolf.wav"
+    },
+    {
+      name: "Johnny B Goode",
+      file: "../../assets/media/DavesPicks25/23_Johnny B Goode.wav"
     }
     
   ]

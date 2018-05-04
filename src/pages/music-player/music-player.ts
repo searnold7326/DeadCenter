@@ -38,8 +38,10 @@ export class MusicPlayerPage {
     });
   }
 
+  //Plays the selected song and will switch if a different song is picked
   public playMusic(songName){
     if(this.song && this.nowPlayingName != songName){
+      this.song.stop();
       this.song.release();
       this.song = this.media.create(this.sharedSong.getFileName());
       this.song.play();
@@ -57,6 +59,7 @@ export class MusicPlayerPage {
     }
   }
 
+  //Stops Song
   stopSong(){
     if(this.song){
       this.song.stop();
@@ -67,12 +70,14 @@ export class MusicPlayerPage {
     }
   }
 
+  //Pauses song
   pauseSong(){
     if(this.song){
       this.song.pause();
       this.songIsPaused = true;
     }
   }
+
 
   public playMusic2(){
     if(this.songIsPaused){
