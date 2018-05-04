@@ -1,0 +1,8 @@
+{
+  "name": "DeadCenter",
+  "app_id": "26312356",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
