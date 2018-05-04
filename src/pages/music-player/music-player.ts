@@ -21,6 +21,8 @@ export class MusicPlayerPage {
   private song: MediaObject;
   private songIsPaused = false;
 
+  private nowPlaying;
+
   constructor(public sharedSong: ShareSongProvider, public events: Events, public media: Media, public navCtrl: NavController, public navParams: NavParams) {
     
   }
@@ -32,15 +34,18 @@ export class MusicPlayerPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad MusicPlayerPage');
     this.events.subscribe("functioncall:goToMusicPlayer", eventData => {
-      this.playMusic();
+      this.playMusic(eventData);
     });
   }
 
-  public playMusic(){
+  public playMusic(songName){
     console.log("This should be playing")
+
+    
     if(!this.song){
       this.song = this.media.create(this.sharedSong.getFileName());
       this.song.play();
+      this.nowPlaying = this.song;
     }else if(this.songIsPaused){
       this.song.play();
       this.songIsPaused = false;

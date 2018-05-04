@@ -59,7 +59,7 @@ export class SongsListPage {
   saveSong(songName,songFile){
     this.song = songFile;
     this.shareSongs.setSongInfo(songName, songFile);
-    this.events.publish("functioncall:goToMusicPlayer");
+    this.events.publish("functioncall:goToMusicPlayer", songName);
     this.goToMusicPlayer();
   }
 }
