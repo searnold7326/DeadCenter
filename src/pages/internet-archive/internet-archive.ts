@@ -30,13 +30,11 @@ export class InternetArchivePage {
     console.log('ionViewDidLoad InternetArchivePage');
   }
 
-
+  //Create the url and push the ArchivedListPage to the fron with the url as the parameter.
   private loadArchiveList(item){
     let url = "http://ganskop.com/proxy/archive.org/services/search/v1/scrape?debug=false&xvar=production&total"+
     "_only=false&count=1000&fields=identifier%2C%20title%2C%20date%2C%20name%2C%20source&q=collection%3A"+
     "(GratefulDead)%20AND%20date%3A%5B"+item+"-01-01%20TO%20"+item+"-12-31%5D";
-
-    
 
     this.navCtrl.push(ArchiveListPage, {
       firstParam: url

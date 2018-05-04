@@ -21,31 +21,36 @@ export class MusicPlayerPage {
   private song: MediaObject;
   private songIsPaused = false;
 
-  private nowPlaying;
+  nowPlayingName: string;
 
   constructor(public sharedSong: ShareSongProvider, public events: Events, public media: Media, public navCtrl: NavController, public navParams: NavParams) {
     
   }
   
-  ionViewWillEnter(){
-    
-  }
+  
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MusicPlayerPage');
+
+    //If goToMusicPlayer is called playMusic
     this.events.subscribe("functioncall:goToMusicPlayer", eventData => {
       this.playMusic(eventData);
     });
   }
 
   public playMusic(songName){
-    console.log("This should be playing")
+    if(this.song && this.nowPlayingName != songName){
+      this.song.release();
+      this.song = this.media.create(this.sharedSong.getFileName());
+      this.song.play();
+      this.nowPlayingName = songName;
+    }
 
-    
     if(!this.song){
       this.song = this.media.create(this.sharedSong.getFileName());
       this.song.play();
-      this.nowPlaying = this.song;
+      this.nowPlayingName = songName;
+
     }else if(this.songIsPaused){
       this.song.play();
       this.songIsPaused = false;
@@ -58,6 +63,7 @@ export class MusicPlayerPage {
       this.song.release();
       this.song = null;
       this.songIsPaused = false;
+      this.nowPlayingName = null;
     }
   }
 
